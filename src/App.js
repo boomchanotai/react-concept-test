@@ -18,14 +18,14 @@ const App = () => {
   const [email, setEmail] = useState("");
 
   // const [count, setCount] = useState(0);
-  const fetchData = async () => {
-    const res = await axios.get("https://www.mecallapi.com/api/users/1");
-    await dispatch(setUser(res.data.user));
-  };
 
   useEffect(() => {
+    const fetchData = async () => {
+      const res = await axios.get("https://www.mecallapi.com/api/users/1");
+      await dispatch(setUser(res.data.user));
+    };
     fetchData();
-  }, []);
+  }, [dispatch]);
 
   const handleSubmitForm = (event) => {
     event.preventDefault();
